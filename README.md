@@ -110,7 +110,7 @@
                     <button onclick="scrollToSection('seguranca')" class="px-6 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-semibold transition shadow-lg shadow-sky-500/30 flex items-center justify-center gap-2">
                         <i class="fa-solid fa-shield-virus"></i> Ver Dicas de Segurança
                     </button>
-                    <button onclick="scrollToSection('leis')" class="px-6 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-white font-semibold transition border border-slate-700 flex items-center justify-center gap-2">
+                    <button onclick="scrollToSection('leis')" class="px-6 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-black font-semibold transition border border-slate-700 flex items-center justify-center gap-2">
                         <i class="fa-solid fa-scale-balanced"></i> Conhecer Seus Direitos
                     </button>
                 </div>
