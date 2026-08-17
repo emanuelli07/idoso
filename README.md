@@ -719,3 +719,90 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu de Acessibilidade</title>
+  <style>
+    /* Estilos do Menu de Acessibilidade */
+    .menu-acessibilidade {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .btn-acessibilidade {
+      padding: 8px 12px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .btn-acessibilidade:hover {
+      background-color: #003d80;
+    }
+
+    /* Conteúdo Exemplo */
+    .conteudo {
+      padding: 20px;
+      font-size: 16px; /* Tamanho inicial base */
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu de Acessibilidade -->
+  <div class="menu-acessibilidade" role="region" aria-label="Opções de Acessibilidade">
+    <button class="btn-acessibilidade" onclick="alterarTamanhoFonte(2)">A+ (Aumentar Fonte)</button>
+    <button class="btn-acessibilidade" onclick="alterarTamanhoFonte(-2)">A- (Diminuir Fonte)</button>
+    <button class="btn-acessibilidade" onclick="lerTexto()">Ouvir Texto</button>
+  </div>
+
+  <!-- Conteúdo da Página -->
+  <main class="conteudo" id="texto-principal">
+    <h1>Acessibilidade na Web</h1>
+    <p>
+      Garantir que os sites sejam acessíveis permite que pessoas com diferentes habilidades 
+      e necessidades consigam navegar e consumir conteúdos na internet de forma autônoma.
+    </p>
+  </main>
+
+  <script>
+    let tamanhoAtual = 16;
+
+    // Função para alterar o tamanho da fonte
+    function alterarTamanhoFonte(variacao) {
+      tamanhoAtual += variacao;
+      // Define um limite mínimo de 12px e máximo de 28px
+      if (tamanhoAtual < 12) tamanhoAtual = 12;
+      if (tamanhoAtual > 28) tamanhoAtual = 28;
+
+      document.getElementById('texto-principal').style.fontSize = tamanhoAtual + 'px';
+    }
+
+    // Função de Leitura em Voz Alta (Text-to-Speech)
+    function lerTexto() {
+      // Cancela qualquer fala anterior em andamento
+      window.speechSynthesis.cancel();
+
+      const texto = document.getElementById('texto-principal').innerText;
+      const mensagem = new SpeechSynthesisUtterance(texto);
+      
+      mensagem.lang = 'pt-BR'; // Define o idioma para português
+      mensagem.rate = 1;       // Velocidade da fala (1 é normal)
+
+      window.speechSynthesis.speak(mensagem);
+    }
+  </script>
+
+</body>
+</html>
